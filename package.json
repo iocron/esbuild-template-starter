@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "build": "node bundle.mjs",
-    "watch": "node bundle.mjs"
+      "build": "node bundle.mjs 'build'",
+      "watch": "node bundle.mjs 'watch'",
+      "options": "node bundle.mjs 'options'"
   },
   "dependencies": {
     "esbuild": "0.17.19"
