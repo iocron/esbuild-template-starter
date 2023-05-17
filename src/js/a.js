@@ -1,5 +1,5 @@
 export const a = function() {
-    console.log("i am a.js")
+    console.log("I am a.js")
 }
 
 export default {

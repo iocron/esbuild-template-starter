@@ -6,8 +6,8 @@ const buildType = args[0]
 export let _esOptions = {
     outdir: 'dist',
     entryPoints: [
-        { out: 'bundle', in: './src/main.js'},
-        { out: 'bundle', in: './src/main.css'},
+        { out: 'js/bundle', in: './src/js/main.js'},
+        { out: 'css/bundle', in: './src/css/main.css'},
     ],
     bundle: true,
     write: true,
