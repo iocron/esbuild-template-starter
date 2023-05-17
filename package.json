@@ -1,10 +1,11 @@
 {
   "scripts": {
-      "build": "node bundle.mjs 'build'",
-      "watch": "node bundle.mjs 'watch'",
-      "options": "node bundle.mjs 'options'"
+    "build": "node bundle.mjs 'build'",
+    "watch": "node bundle.mjs 'watch'",
+    "options": "node bundle.mjs 'options'"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
     "esbuild": "0.17.19"
   }
 }

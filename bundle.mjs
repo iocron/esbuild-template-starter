@@ -1,13 +1,16 @@
 import * as esbuild from 'esbuild'
+import * as dotenv from 'dotenv'
+
+dotenv.config()
 
 const args = process.argv.slice(2)
 const buildType = args[0]
 
 export let _esOptions = {
-    outdir: 'dist',
+    outdir: process.env.ES_BUNDLE_OUTDIR,
     entryPoints: [
-        { out: 'js/bundle', in: './src/js/main.js'},
-        { out: 'css/bundle', in: './src/css/main.css'},
+        { in: process.env.ES_BUNDLE_CSS_IN, out: process.env.ES_BUNDLE_CSS_OUT },
+        { in: process.env.ES_BUNDLE_JS_IN, out: process.env.ES_BUNDLE_JS_OUT },
     ],
     bundle: true,
     write: true,

@@ -14,7 +14,9 @@ Use the following docs for more esbuild informations: https://esbuild.github.io/
 
 1. Clone the project: `git clone git@github.com:iocron/esbuild-template-starter.git`
 2. Switch to project: `cd esbuild-template-starter`
-3. Install npm dependencies: `npm install`
+3. Copy .env (if it doesn't exist): `cp .env_example .env`
+4. Edit your .env if needed
+5. Install npm dependencies: `npm install`
 
 ## Usage / Command List: 
 
