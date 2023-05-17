@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "build": "node bundle.mjs",
+    "watch": "node bundle.mjs"
+  },
+  "dependencies": {
+    "esbuild": "0.17.19"
+  }
+}

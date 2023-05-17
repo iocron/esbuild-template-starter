@@ -1,0 +1,18 @@
+## BUILD / TOOLS
+dist/*
+node_modules
+.env
+
+## MISC
+.DS_Store
+.AppleDouble
+.LSOverride
+Desktop.ini
+Thumbs.db
+.Spotlight-V100
+.Trashes
+.sass-cache
+.cache
+
+## IGNORE RULE
+!.gitkeep
