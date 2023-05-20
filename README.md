@@ -12,11 +12,16 @@ Use the following docs for more esbuild informations: https://esbuild.github.io/
 
 ## Installation
 
-1. Clone the project: `git clone git@github.com:iocron/esbuild-template-starter.git`
-2. Switch to project: `cd esbuild-template-starter`
+1. Go to your project folder (e.g. `cd esbuild-template-starter`)
+2. Full or Minimal Installation: 
+    - Full Installation + Demo Files: `git clone git@github.com:iocron/esbuild-template-starter.git .`
+    - Minimal Installation: `curl --remote-name-all https://raw.githubusercontent.com/iocron/esbuild-template-starter/main/{bundle.mjs,package.json,package-lock.json,.env_example}`
 3. Create .env file (if it doesn't exist): `cp .env_example .env`
 4. Edit .env file if needed
 5. Install npm dependencies: `npm install`
+
+## Upgrade
+If you need to update/upgrade the project, use git pull or curl (as mentioned in Step 1. of the Installation)
 
 ## Usage / Command List: 
 
