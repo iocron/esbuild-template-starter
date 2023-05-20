@@ -16,6 +16,7 @@ export let _esOptions = {
     write: true,
     minify: true,
     sourcemap: true,
+    logLevel: 'info',
     // packages: 'external', // External dependency loading during runtime
     // target: ['node10.4'], // Specify target (node version) if needed
 }
