@@ -1,0 +1,12 @@
+{
+    "outdir": ".",
+    "entryPoints": [
+        { "in": "./src/css/main.css", "out": "./dist/css/bundlex" },
+        { "in": "./src/js/main.js", "out": "./dist/js/bundlex" }
+    ],
+    "bundle": true,
+    "write": true,
+    "minify": true,
+    "sourcemap": true,
+    "logLevel": "info"
+}

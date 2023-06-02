@@ -1,32 +1,58 @@
 import * as esbuild from 'esbuild'
-import * as dotenv from 'dotenv'
-
-dotenv.config()
+import * as fs from 'fs'
+// import _esOptions from './bundle.config.mjs'
 
 const args = process.argv.slice(2)
 const buildType = args[0]
 
-export let _esOptions = {
-    outdir: process.env.ES_BUNDLE_OUTDIR,
-    entryPoints: [
-        { in: process.env.ES_BUNDLE_CSS_IN, out: process.env.ES_BUNDLE_CSS_OUT },
-        { in: process.env.ES_BUNDLE_JS_IN, out: process.env.ES_BUNDLE_JS_OUT },
-    ],
-    bundle: true,
-    write: true,
-    minify: true,
-    sourcemap: true,
-    logLevel: 'info',
-    // packages: 'external', // External dependency loading during runtime
-    // target: ['node10.4'], // Specify target (node version) if needed
-}
+// Load custom config if exists (bundle.config.json), otherwise set some defaults
+export const _esOptions =
+    fs.existsSync("./bundle.config.json") ?
+    await JSON.parse(fs.readFileSync('./bundle.config.json', "utf8")) :
+    {
+        outdir: ".",
+        entryPoints: [
+            { in: "./src/css/main.css", out: "./dist/css/bundle" },
+            { in: "./src/js/main.js", out: "./dist/js/bundle" },
+        ],
+        bundle: true,
+        write: true,
+        minify: true,
+        sourcemap: true,
+        logLevel: 'info',
+        // packages: 'external', // External dependency loading during runtime
+        // target: ['node10.4'], // Specify target (node version) if needed
+    }
 
-export const _esBuilder = async function(){
+// if (fs.existsSync("./bundle.config.json")) {
+//     // console.log(JSON.parse(fs.readFileSync('./bundle.config.json', "utf8")))
+//     _esOptions = await JSON.parse(fs.readFileSync('./bundle.config.json', "utf8"))
+// } else if(fs.existsSync(".env")) {
+//     throw("Please migrate to the new config format \"bundle.config.js\". Simply copy/paste your config there, e.g.: export default { ... }")
+// } else {
+//     console.log("No config file bundle.config.js or .env found. Some defaults are beeing set..")
+//     _esOptions = {
+//         outdir: ".",
+//         entryPoints: [
+//             { in: "./src/css/main.css", out: "./dist/css/bundle" },
+//             { in: "./src/js/main.js", out: "./dist/js/bundle" },
+//         ],
+//         bundle: true,
+//         write: true,
+//         minify: true,
+//         sourcemap: true,
+//         logLevel: 'info',
+//         // packages: 'external', // External dependency loading during runtime
+//         // target: ['node10.4'], // Specify target (node version) if needed
+//     }
+// }
+
+export const _esBuilder = async function(_esOptions){
     await esbuild.build(_esOptions)
     console.log('Build seems complete.')
 }
 
-export const _esWatcher = async function(){
+export const _esWatcher = async function(_esOptions){
     const ctx = await esbuild.context(_esOptions)
     await ctx.watch()
     console.log('Watching...')
@@ -38,18 +64,20 @@ export default {
     _esWatcher
 }
 
-switch (buildType) {
-    case "options":
-        console.log("_esOptions: ")
-        console.log(_esOptions)
-        break;
-    case "build":
-        _esBuilder(_esOptions)
-        break;
-    case "watch":
-        _esWatcher(_esOptions)
-        break;
-    default:
-        console.log("Please specify one of the following arguments as string: \"build\", \"watch\" or \"options\"")
-        break;
+if(buildType) {
+    switch (buildType) {
+        case "options":
+            console.log("_esOptions: ")
+            console.log(_esOptions)
+            break;
+        case "build":
+            _esBuilder(_esOptions)
+            break;
+        case "watch":
+            _esWatcher(_esOptions)
+            break;
+        default:
+            console.log("Please specify one of the following arguments as string: \"build\", \"watch\" or \"options\"")
+            break;
+    }
 }
