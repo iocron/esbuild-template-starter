@@ -24,29 +24,6 @@ export const _esOptions =
         // target: ['node10.4'], // Specify target (node version) if needed
     }
 
-// if (fs.existsSync("./bundle.config.json")) {
-//     // console.log(JSON.parse(fs.readFileSync('./bundle.config.json', "utf8")))
-//     _esOptions = await JSON.parse(fs.readFileSync('./bundle.config.json', "utf8"))
-// } else if(fs.existsSync(".env")) {
-//     throw("Please migrate to the new config format \"bundle.config.js\". Simply copy/paste your config there, e.g.: export default { ... }")
-// } else {
-//     console.log("No config file bundle.config.js or .env found. Some defaults are beeing set..")
-//     _esOptions = {
-//         outdir: ".",
-//         entryPoints: [
-//             { in: "./src/css/main.css", out: "./dist/css/bundle" },
-//             { in: "./src/js/main.js", out: "./dist/js/bundle" },
-//         ],
-//         bundle: true,
-//         write: true,
-//         minify: true,
-//         sourcemap: true,
-//         logLevel: 'info',
-//         // packages: 'external', // External dependency loading during runtime
-//         // target: ['node10.4'], // Specify target (node version) if needed
-//     }
-// }
-
 export const _esBuilder = async function(_esOptions){
     await esbuild.build(_esOptions)
     console.log('Build seems complete.')
