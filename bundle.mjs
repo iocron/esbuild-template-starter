@@ -20,11 +20,12 @@ export const _esOptions =
         minify: true,
         sourcemap: true,
         logLevel: 'info',
-        loader: {
-            '.jpg': 'file',
-            '.gif': 'file',
-            '.png': 'file',
-        }
+        // TODO: Does not work as expected (need a workaround for static urls)
+        // loader: {
+        //     '.jpg': 'file',
+        //     '.gif': 'file',
+        //     '.png': 'file',
+        // }
         // packages: 'external', // External dependency loading during runtime
         // target: ['node10.4'], // Specify target (node version) if needed
     }
