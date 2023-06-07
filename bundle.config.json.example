@@ -1,12 +1,13 @@
 {
     "outdir": ".",
     "entryPoints": [
-        { "in": "./src/css/main.css", "out": "./dist/css/bundlex" },
-        { "in": "./src/js/main.js", "out": "./dist/js/bundlex" }
+        { "in": "./src/css/main.css", "out": "./dist/css/bundle" },
+        { "in": "./src/js/main.js", "out": "./dist/js/bundle" }
     ],
     "bundle": true,
     "write": true,
     "minify": true,
     "sourcemap": true,
-    "logLevel": "info"
+    "logLevel": "info",
+    "external": [ "./public/*", "../public/*", "./static/*", "../static/*" ]
 }
