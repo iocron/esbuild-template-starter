@@ -24,6 +24,9 @@ export const _esOptions =
             './public/*', '../public/*',
             './static/*', '../static/*'
         ],
+        "supported": {
+            "nesting": false
+        }
         // loader: { '.jpg': 'file', '.gif': 'file', '.png': 'file' },
         // packages: 'external', // External dependency loading during runtime
         // target: ['node10.4'], // Specify target (node version) if needed

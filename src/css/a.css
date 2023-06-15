@@ -1,1 +1,8 @@
 a { color: #151515; }
+
+div {
+    /* Test of CSS Nesting (with old browser support) */
+    & strong {
+        font-weight: bold;
+    }
+}

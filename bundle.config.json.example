@@ -9,5 +9,8 @@
     "minify": true,
     "sourcemap": true,
     "logLevel": "info",
-    "external": [ "./public/*", "../public/*", "./static/*", "../static/*" ]
+    "external": [ "./public/*", "../public/*", "./static/*", "../static/*" ],
+    "supported": {
+    "nesting": false
+    }
 }
