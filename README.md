@@ -50,3 +50,9 @@ Show the current settings/options:
 ```
 npm run options
 ```
+
+Upgrade/Download latest bundler: 
+
+```
+npm run upgrade
+```
